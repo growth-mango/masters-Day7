@@ -1,12 +1,28 @@
 package Day7;
 
-public class Calculator {
-    private Register register;
-    private Stack stack;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Calculator(Register register, Stack stack) {
-        this.register = register;
+public class Calculator {
+    private Stack stack;
+    private Register register;
+
+    public Calculator(Stack stack, Register register) {
         this.stack = stack;
+        this.register = register;
+    }
+
+    public void calculateCommand(List<String> commands) {
+        for (String command : commands) {
+            switch (command) {
+                case "POPA":
+                    popA();
+                    break;
+                case "POPB" :
+                    popB();
+                    break;
+            }
+        }
     }
 
     private void popA() {
@@ -18,22 +34,22 @@ public class Calculator {
         }
     }
 
-    private void popB(){
+    private void popB() {
         try {
             Integer valueB = stack.popValue();
             register.setB(valueB);
-        }catch (IllegalStateException e){
+        } catch (IllegalStateException e) {
             System.out.println("EMPTY");
         }
     }
 
-    private void add(){
+    private void add() {
         Integer a = register.getA();
         Integer b = register.getB();
-        if(a == null || b == null){
+        if (a == null || b == null) {
             System.out.println("ERROR");
-        }else {
-            stack.pushValue(a+b);
+        } else {
+            stack.pushValue(a + b);
         }
     }
 

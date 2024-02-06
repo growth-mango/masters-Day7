@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Stack {
-    private LinkedList<Integer> stack = new LinkedList<>(Arrays.asList(1,3,5));
+    private LinkedList<Integer> stack = new LinkedList<>(Arrays.asList(1, 3, 5));
     private final int CAPACITY = 8;
 
     public void pushValue(Integer value) {
@@ -32,7 +32,6 @@ public class Stack {
             throw new IllegalStateException("EMPTY");
         }
     }
-
 
 
 }
